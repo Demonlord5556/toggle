@@ -1,0 +1,209 @@
+/* CSS Variables for Dark and Light Modes */
+:root {
+    --bg-color: #121212;
+    --form-bg: #1e1e1e;
+    --text-color: #666;
+    --accent: #444;
+    --beam-opacity: 0;
+    --bulb-color: #333;
+}
+
+/* Variables when the light is toggled ON */
+body.light-on {
+    --bg-color: #2c3e50;
+    --form-bg: #ffffff;
+    --text-color: #333;
+    --accent: #3498db;
+    --beam-opacity: 1;
+    --bulb-color: #f1c40f;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    transition: background-color 0.8s ease;
+    overflow: hidden;
+    flex-direction: row;
+}
+
+/* --- Table Lamp Design --- */
+.lamp-wrapper {
+    position: relative;
+    z-index: 80;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px; /* Overlap the form slightly */
+}
+
+.lamp-shade {
+    width: 140px;
+    height: 70px;
+    background-color: #34495e;
+    border-radius: 70px 70px 0 0;
+    position: relative;
+    z-index: 2;
+    box-shadow: inset 0 -5px 15px rgba(0,0,0,0.3);
+}
+
+.lamp-bulb {
+    width: 40px;
+    height: 40px;
+    background-color: var(--bulb-color);
+    border-radius: 50%;
+    position: absolute;
+    bottom: -15px;
+    z-index: 1;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+body.light-on .lamp-bulb {
+    box-shadow: 0 0 30px #f1c40f, 0 0 60px #f1c40f;
+}
+
+.lamp-switch {
+    position: absolute;
+    top: 75px;
+    right: 35px;
+    width: 14px;
+    height: 14px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 3;
+    transition: transform 0.1s, background-color 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.lamp-switch:active {
+    transform: translateY(4px); /* Click depression effect */
+}
+
+.lamp-stand {
+    width: 12px;
+    height: 60px;
+    background-color: #7f8c8d;
+}
+
+.lamp-base {
+    width: 100px;
+    height: 15px;
+    background-color: #34495e;
+    border-radius: 10px 10px 0 0;
+}
+
+/* The Glow Effect / Light Beam */
+.light-beam {
+    position: absolute;
+    top: 60px;
+    width: 600px;
+    height: 800px;
+    background: linear-gradient(to bottom, rgba(241, 196, 15, 0.25) 0%, rgba(241, 196, 15, 0) 100%);
+    clip-path: polygon(35% 0, 65% 0, 100% 100%, 0% 100%);
+    opacity: var(--beam-opacity);
+    transition: opacity 0.8s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* --- Auth Form Design --- */
+.auth-container {
+    background-color: var(--form-bg);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    width: 100%;
+    max-width: 360px;
+    position: relative;
+    z-index: 5;
+    transition: background-color 0.8s ease, box-shadow 0.8s ease;
+}
+
+body.light-on .auth-container {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 24px;
+    transition: color 0.8s ease;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #333;
+    background-color: #1a1a1a;
+    color: #fff;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: all 0.8s ease;
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--accent);
+}
+
+body.light-on input {
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    color: #333;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.8s ease, transform 0.1s;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+body.light-on button:hover {
+    background-color: #2980b9;
+}
+
+.toggle-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.toggle-link a {
+    color: var(--accent);
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: color 0.8s ease;
+}
+
+.toggle-link a:hover {
+    text-decoration: underline;
+}

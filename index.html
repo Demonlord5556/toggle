@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Table Lamp Login</title>
+    <link rel="stylesheet" href="file.css">
+</head>
+<body>
+
+<div class="lamp-wrapper">
+    <div class="lamp-shade"></div>
+    <div class="lamp-bulb"></div>
+    <div class="lamp-switch" onclick="toggleLight()" title="Click to turn on the light!"></div>
+    <div class="lamp-stand"></div>
+    <div class="lamp-base"></div>
+    <div class="light-beam"></div>
+</div>
+
+<div class="auth-container">
+    <h2 id="form-title">Sign In</h2>
+    <form onsubmit="event.preventDefault();">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" required placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" required placeholder="Enter your password">
+        </div>
+        <button type="submit" id="submit-btn">Log In</button>
+    </form>
+    
+    <div class="toggle-link">
+        <span id="toggle-text">Don't have an account?</span> 
+        <a onclick="toggleForm()">Sign Up here</a>
+    </div>
+</div>
+
+<script src="kot.js"></script>
+
+</body>
+</html>
