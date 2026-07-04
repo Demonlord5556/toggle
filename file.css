@@ -1,6 +1,5 @@
-/* CSS Variables for Dark and Light Modes */
 :root {
-    --bg-color: #121212;
+    --bg-color: #000000; 
     --form-bg: #1e1e1e;
     --text-color: #666;
     --accent: #444;
@@ -8,9 +7,8 @@
     --bulb-color: #333;
 }
 
-/* Variables when the light is toggled ON */
 body.light-on {
-    --bg-color: #2c3e50;
+    --bg-color: #2c3e50; 
     --form-bg: #ffffff;
     --text-color: #333;
     --accent: #3498db;
@@ -29,17 +27,18 @@ body {
     margin: 0;
     transition: background-color 0.8s ease;
     overflow: hidden;
-    flex-direction: row;
+    
+    flex-direction: row; 
+    gap: 80px; 
 }
 
-/* --- Table Lamp Design --- */
 .lamp-wrapper {
     position: relative;
-    z-index: 80;
+    z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px; /* Overlap the form slightly */
+    margin-bottom: 0; 
 }
 
 .lamp-shade {
@@ -82,7 +81,7 @@ body.light-on .lamp-bulb {
 }
 
 .lamp-switch:active {
-    transform: translateY(4px); /* Click depression effect */
+    transform: translateY(4px);
 }
 
 .lamp-stand {
@@ -98,14 +97,15 @@ body.light-on .lamp-bulb {
     border-radius: 10px 10px 0 0;
 }
 
-/* The Glow Effect / Light Beam */
+
 .light-beam {
     position: absolute;
-    top: 60px;
-    width: 600px;
-    height: 800px;
-    background: linear-gradient(to bottom, rgba(241, 196, 15, 0.25) 0%, rgba(241, 196, 15, 0) 100%);
-    clip-path: polygon(35% 0, 65% 0, 100% 100%, 0% 100%);
+    top: -220px; 
+    left: 70px; 
+    width: 800px;
+    height: 600px;
+    background: linear-gradient(to right, rgba(241, 196, 15, 0.25) 0%, rgba(241, 196, 15, 0) 100%);
+    clip-path: polygon(0 48%, 0 52%, 100% 100%, 100% 0%);
     opacity: var(--beam-opacity);
     transition: opacity 0.8s ease;
     pointer-events: none;
@@ -122,10 +122,19 @@ body.light-on .lamp-bulb {
     max-width: 360px;
     position: relative;
     z-index: 5;
-    transition: background-color 0.8s ease, box-shadow 0.8s ease;
+    
+    /* Pitch Black Mode: Hides the form entirely */
+    opacity: 0; 
+    pointer-events: none; 
+    
+    transition: opacity 0.8s ease, background-color 0.8s ease, box-shadow 0.8s ease;
 }
 
 body.light-on .auth-container {
+    /* Reveals the form smoothly when the light turns on */
+    opacity: 1; 
+    pointer-events: auto; 
+    
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
@@ -151,59 +160,4 @@ input {
     width: 100%;
     padding: 12px;
     border: 1px solid #333;
-    background-color: #1a1a1a;
-    color: #fff;
-    border-radius: 6px;
-    box-sizing: border-box;
-    transition: all 0.8s ease;
-    outline: none;
-}
-
-input:focus {
-    border-color: var(--accent);
-}
-
-body.light-on input {
-    background-color: #f8f9fa;
-    border: 1px solid #ccc;
-    color: #333;
-}
-
-button {
-    width: 100%;
-    padding: 12px;
-    background-color: var(--accent);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background-color 0.8s ease, transform 0.1s;
-}
-
-button:active {
-    transform: scale(0.98);
-}
-
-body.light-on button:hover {
-    background-color: #2980b9;
-}
-
-.toggle-link {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
-}
-
-.toggle-link a {
-    color: var(--accent);
-    text-decoration: none;
-    cursor: pointer;
-    font-weight: 600;
-    transition: color 0.8s ease;
-}
-
-.toggle-link a:hover {
-    text-decoration: underline;
-}
+    background-color: #1a1a1
